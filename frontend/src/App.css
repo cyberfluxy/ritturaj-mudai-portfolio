@@ -1,0 +1,41 @@
+/* Container default - DO NOT center align text globally */
+.App { min-height: 100vh; background: #FAF6F0; }
+
+/* Specific transitions only */
+button, a, input, textarea {
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hover lift for cards */
+.card-lift { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease; }
+.card-lift:hover { transform: translateY(-4px); }
+
+/* Image kenburn */
+.kenburn { transition: transform 1.2s ease; }
+.kenburn:hover { transform: scale(1.04); }
+
+/* Scroll-snap utility */
+.snap-x-start { scroll-snap-type: x mandatory; }
+.snap-x-start > * { scroll-snap-align: start; }
+
+/* Underline reveal */
+.link-underline { position: relative; }
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: #FF5A36;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s ease;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Vertical text */
+.vertical-rl { writing-mode: vertical-rl; text-orientation: mixed; }

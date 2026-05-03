@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FAF6F0;
+  color: #1A1A1A;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, monospace;
+}
+
+.font-display {
+  font-family: 'Anton', 'Inter', sans-serif;
+  letter-spacing: 0.01em;
+}
+.font-serif-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+.font-assamese {
+  font-family: 'Noto Serif Bengali', 'Fraunces', serif;
+  font-weight: 500;
+}
+
+/* Reusable utility for noise/grain overlay */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Custom selection */
+::selection {
+  background: #FF5A36;
+  color: #FAF6F0;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Reveal */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { animation: fadeUp 0.7s ease forwards; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@layer base {
+  :root {
+    --background: 36 38% 96%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 36 38% 96%;
+    --secondary: 36 30% 92%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 36 24% 90%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 12 100% 60%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 20% 86%;
+    --input: 30 20% 86%;
+    --ring: 12 100% 60%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
