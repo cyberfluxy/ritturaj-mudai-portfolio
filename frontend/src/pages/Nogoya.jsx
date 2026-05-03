@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Mic, Radio, Film, Quote } from "lucide-react";
+import { ArrowUpRight, Mic, Radio, Film, Quote, Users, Facebook, Instagram } from "lucide-react";
 import { nogoyaContent, businesses } from "../data/mock";
 
 const Nogoya = () => {
@@ -62,6 +62,35 @@ const Nogoya = () => {
           </div>
         </div>
       </section>
+
+      {/* Team & Reach */}
+      <section className="py-20 bg-[#FFE8DC]">
+        <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-5">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-[#FF5A36] mb-3">— By the numbers</div>
+            <h2 className="font-serif-display text-4xl md:text-5xl italic leading-[0.95]">A small team, a big intention.</h2>
+            <p className="mt-5 text-[#1A1A1A]/75 max-w-md">Founded in {nogoyaContent.founded}, Nogoya is run by a tight group of journalists, editors and producers — all working out of Nagaon.</p>
+          </div>
+          <div className="lg:col-span-7 grid sm:grid-cols-3 gap-4">
+            <div className="bg-white border border-[#1A1A1A]/10 rounded-3xl p-6">
+              <Users className="w-5 h-5 text-[#FF5A36] mb-4" />
+              <div className="font-display text-4xl">~20</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-[#1A1A1A]/55 mt-2">Team members</div>
+            </div>
+            <div className="bg-white border border-[#1A1A1A]/10 rounded-3xl p-6">
+              <Facebook className="w-5 h-5 text-[#FF5A36] mb-4" />
+              <div className="font-display text-4xl">{nogoyaContent.reach.facebook}</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-[#1A1A1A]/55 mt-2">Facebook followers</div>
+            </div>
+            <div className="bg-white border border-[#1A1A1A]/10 rounded-3xl p-6">
+              <Instagram className="w-5 h-5 text-[#FF5A36] mb-4" />
+              <div className="font-display text-4xl">{nogoyaContent.reach.instagram}</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-[#1A1A1A]/55 mt-2">Instagram followers</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Shows */}
       <section className="py-24 bg-[#FAF6F0]">
